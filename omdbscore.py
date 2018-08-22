@@ -9,6 +9,6 @@ params = {
     's' : query
 }
 
-url = baseUrl + '?' + urllib.urlencode(params)
+url = baseUrl + '?' + urllib.parse.urlencode(params)
 movieInfo = requests.get(url).content
 print(movieInfo)
