@@ -1,7 +1,7 @@
 import tmdbsimple as tmdb
 import requests
 import json
-from privatekeys import *
+from privatekeys import tmdb_key
 
 tmdb.API_KEY = tmdb_key
 
