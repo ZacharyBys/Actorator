@@ -37,7 +37,7 @@ def findOmdbScore(movie):
 def convertScoresOnTen(movieScores):
     if movieScores['Internet Movie Database']:
         score =  movieScores['Internet Movie Database'].split('/')[0]
-        movieScores['Internet Movie Database'] = score
+        movieScores['Internet Movie Database'] = float(score)
     if movieScores['Rotten Tomatoes']:
         score = movieScores['Rotten Tomatoes'].split('%')[0]
         score = int(score)/10.0
