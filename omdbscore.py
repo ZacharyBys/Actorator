@@ -10,7 +10,7 @@ def findOmdbScoreFromId(imdbID):
         'i' : imdbID
     }
 
-    url = baseUrl + '?' + urllib.urlencode(params)
+    url = baseUrl + '?' + urllib.parse.urlencode(params)
     result = json.loads(requests.get(url).content)
 
     results = {}
