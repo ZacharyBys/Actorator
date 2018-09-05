@@ -3,7 +3,7 @@ import requests
 import urllib
 import json
 
-def findOmdbScoreFromId(imdbID):
+def find_omdb_score_from_id(imdbID):
     baseUrl = 'http://www.omdbapi.com/'
     params = {
         'apiKey' : omdb_key,
@@ -18,9 +18,9 @@ def findOmdbScoreFromId(imdbID):
         for rating in result['Ratings']:
             results[rating['Source']] = rating['Value']
 
-    return convertScoresOnTen(results)
+    return convert_scores_on_ten(results)
 
-def findOmdbScore(movie):
+def find_omdb_score(movie):
     baseUrl = 'http://www.omdbapi.com/'
     params = {
         'apiKey' : omdb_key,
@@ -30,24 +30,21 @@ def findOmdbScore(movie):
     url = baseUrl + '?' + urllib.parse.urlencode(params)
     searchResults = json.loads(requests.get(url).content)
     if searchResults['Search'][0]:
-        return findOmdbScoreFromId(searchResults['Search'][0]['imdbID'])
+        return find_omdb_score_from_id(searchResults['Search'][0]['imdbID'])
     else:
         return -1
 
-def convertScoresOnTen(movieScores):
-    if movieScores['Internet Movie Database']:
+def convert_scores_on_ten(movieScores):
+    if 'Internet Movie Database' in movieScores:
         score =  movieScores['Internet Movie Database'].split('/')[0]
         movieScores['Internet Movie Database'] = float(score)
-    if movieScores['Rotten Tomatoes']:
+    if 'Rotten Tomatoes' in movieScores:
         score = movieScores['Rotten Tomatoes'].split('%')[0]
         score = int(score)/10.0
         movieScores['Rotten Tomatoes'] = score
-    if movieScores['Metacritic']:
+    if 'Metacritic' in movieScores:
         score = movieScores['Metacritic'].split('/')[0]
         score = int(score)/10.0
         movieScores['Metacritic'] = score
 
     return movieScores
-
-
-print(findOmdbScore('Batman v superman'))

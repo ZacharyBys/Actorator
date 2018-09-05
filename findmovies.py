@@ -23,5 +23,3 @@ def find_actor_id(actor):
 
 def find_actors_movies(actor):
     return find_actors_movies_from_id(find_actor_id(actor))
-
-print(find_actors_movies("Tarantino"))

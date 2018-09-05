@@ -35,5 +35,3 @@ def find_score_by_person(person):
             voteTotal = voteTotal + movie['vote_average']
         return voteTotal/len(movies['cast'])
     return None
-
-print(find_score_by_person('Cage'))
