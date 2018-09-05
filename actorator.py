@@ -13,15 +13,16 @@ def find_full_actor_score(actor):
     metacritic_count = 0
     for movie in movies:
         score = find_omdb_score(movie)
-        if 'Rotten Tomatoes' in score:
-            rottentomatoes = rottentomatoes + score['Rotten Tomatoes']
-            rottentomatoes_count = rottentomatoes_count + 1
-        if 'Internet Movie Database' in score:
-            imdb = imdb + score['Internet Movie Database']
-            imdb_count = imdb_count + 1
-        if 'Metacritic' in score:    
-            metacritic = metacritic + score['Metacritic']
-            metacritic_count = metacritic_count + 1
+        if score != -1:
+            if 'Rotten Tomatoes' in score:
+                rottentomatoes = rottentomatoes + score['Rotten Tomatoes']
+                rottentomatoes_count = rottentomatoes_count + 1
+            if 'Internet Movie Database' in score:
+                imdb = imdb + score['Internet Movie Database']
+                imdb_count = imdb_count + 1
+            if 'Metacritic' in score:    
+                metacritic = metacritic + score['Metacritic']
+                metacritic_count = metacritic_count + 1
 
     if metacritic_count > 0:
         metacritic = metacritic / metacritic_count
@@ -33,4 +34,4 @@ def find_full_actor_score(actor):
     return (rottentomatoes + imdb + metacritic) / 3
 
 
-print(find_full_actor_score('Edgar Wright'))
+print(find_full_actor_score('Quentin Tarantino'))

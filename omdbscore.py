@@ -29,7 +29,7 @@ def find_omdb_score(movie):
 
     url = baseUrl + '?' + urllib.parse.urlencode(params)
     searchResults = json.loads(requests.get(url).content)
-    if searchResults['Search'][0]:
+    if 'Search' in searchResults and searchResults['Search'][0]:
         return find_omdb_score_from_id(searchResults['Search'][0]['imdbID'])
     else:
         return -1
