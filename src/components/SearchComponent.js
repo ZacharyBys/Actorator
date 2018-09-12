@@ -20,7 +20,7 @@ class SearchComponent extends Component {
                 if (this.state.query.length % 2 === 0) {
                     this.getInfo()
                 }
-            } else if (!this.state.query) {
+            } else {
                 this.state.results = []
             }
         })
