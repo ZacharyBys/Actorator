@@ -1,0 +1,10 @@
+.header-container {
+    width: 100%;
+    text-align: center;
+}
+
+.header-title {
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
