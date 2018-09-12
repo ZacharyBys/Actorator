@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ratings.apps.RatingsConfig'
+    'rest_framework',
+    'ratings.apps.RatingsConfig',
+    'actors.apps.ActorsConfig'
 ]
 
 MIDDLEWARE = [
