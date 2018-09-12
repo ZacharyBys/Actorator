@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/SearchComponent.css';
 import axios from 'axios';
+import Suggestions from './Suggestions';
 
 const TMDB_URL = 'https://api.themoviedb.org/3/search/person';
 const { REACT_APP_TMDB_KEY }  = process.env;
@@ -8,6 +9,7 @@ const { REACT_APP_TMDB_KEY }  = process.env;
 class SearchComponent extends Component {
     state = {
         query: '',
+        results: []
     }
      
     handleInputChange = () => {
@@ -18,7 +20,9 @@ class SearchComponent extends Component {
                 if (this.state.query.length % 2 === 0) {
                     this.getInfo()
                 }
-            } 
+            } else if (!this.state.query) {
+                this.state.results = []
+            }
         })
     }
 
@@ -39,7 +43,7 @@ class SearchComponent extends Component {
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
                 />
-                <p>{this.state.query}</p>
+                <Suggestions results={this.state.results}/>
                 <div className="search-button-container">
                     <p className="search-button-text">
                         Compute Score
