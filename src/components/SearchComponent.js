@@ -1,19 +1,53 @@
 import React, { Component } from 'react';
 import '../styles/SearchComponent.css';
+import axios from 'axios';
+
+const TMDB_URL = 'https://api.themoviedb.org/3/search/person';
+const { REACT_APP_TMDB_KEY }  = process.env;
 
 class SearchComponent extends Component {
-  render() {
-    return (
-        <div className="search-container">
-            <input className="search-input" placeholder="Enter an actor..."></input>
-            <div className="search-button-container">
-                <p className="search-button-text">
-                    Compute Score
-                </p>
+    state = {
+        query: '',
+    }
+     
+    handleInputChange = () => {
+        this.setState({
+            query: this.search.value
+        }, () => {
+            if (this.state.query && this.state.query.length > 1) {
+                if (this.state.query.length % 2 === 0) {
+                    this.getInfo()
+                }
+            } 
+        })
+    }
+
+    getInfo = () => {
+        axios.get(`${TMDB_URL}?api_key=${REACT_APP_TMDB_KEY}&query=${this.state.query}`)
+        .then(({ data }) => {
+            this.setState({
+              results: data.results                           
+            })
+        })
+    }
+
+    render() {
+        return (
+            <div className="search-container">
+                <input className="search-input" 
+                placeholder="Enter an actor..."
+                ref={input => this.search = input}
+                onChange={this.handleInputChange}
+                />
+                <p>{this.state.query}</p>
+                <div className="search-button-container">
+                    <p className="search-button-text">
+                        Compute Score
+                    </p>
+                </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default SearchComponent;
