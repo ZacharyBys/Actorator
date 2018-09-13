@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+"""from bs4 import BeautifulSoup
 from googlesearch import search
 import requests
 from urllib.request import urlopen
@@ -22,4 +22,4 @@ print('{}: Tomato score: {}'.format(movie, criticscore.text.strip()))
 print('{}: Audience score: {}'.format(movie, communityscore.text.strip()))
 
 if int(communityscore.text.strip('%')) < 30:
-	print('Ouch! Tough crowd!')
+	print('Ouch! Tough crowd!')"""

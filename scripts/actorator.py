@@ -32,5 +32,3 @@ def find_full_actor_score(actor):
 
     return (rottentomatoes + imdb + metacritic) / 3
 
-
-print(find_full_actor_score('Quentin Tarantino'))
