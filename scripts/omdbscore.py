@@ -1,7 +1,8 @@
-from privatekeys import omdb_key
+from .privatekeys import omdb_key
 import requests
 import urllib
 import json
+
 
 def find_omdb_score_from_id(imdbID):
     baseUrl = 'http://www.omdbapi.com/'
@@ -20,6 +21,7 @@ def find_omdb_score_from_id(imdbID):
 
     return convert_scores_on_ten(results)
 
+
 def find_omdb_score(movie):
     baseUrl = 'http://www.omdbapi.com/'
     params = {
@@ -33,6 +35,7 @@ def find_omdb_score(movie):
         return find_omdb_score_from_id(searchResults['Search'][0]['imdbID'])
     else:
         return -1
+
 
 def convert_scores_on_ten(movieScores):
     if 'Internet Movie Database' in movieScores:

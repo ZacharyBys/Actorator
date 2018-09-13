@@ -1,7 +1,6 @@
-import time
-from findmovies import find_actors_movies
-from omdbscore import find_omdb_score
-from tmdbscore import find_tmdb_score
+from .findmovies import find_actors_movies
+from .omdbscore import find_omdb_score
+
 
 def find_full_actor_score(actor):
     movies = find_actors_movies(actor)
