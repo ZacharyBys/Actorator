@@ -39,3 +39,10 @@ def find_score_by_person(person):
             voteTotal = voteTotal + movie['vote_average']
         return voteTotal/len(movies['cast'])
     return None
+
+
+def find_actor(name):
+    actor_id = find_actor_id(name)
+    actor = tmdb.People(actor_id)
+    response = actor.info()
+    return response

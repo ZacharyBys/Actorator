@@ -1,6 +1,6 @@
 from .findmovies import find_actors_movies
 from .omdbscore import find_omdb_score
-
+from .tmdbscore import find_actor
 
 def find_full_actor_score(actor):
     movies = find_actors_movies(actor)
@@ -32,5 +32,5 @@ def find_full_actor_score(actor):
 
     return (rottentomatoes + imdb + metacritic) / 3
 
-
 print(find_full_actor_score('Quentin Tarantino'))
+
