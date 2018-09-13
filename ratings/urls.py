@@ -19,6 +19,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('hi/', views.hi, name='hi')
+    path('get/<str:actor_name>', views.get_rating, name='get_rating'),
 ]
