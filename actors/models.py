@@ -1,4 +1,5 @@
 from django.db import models
+from enum import Enum
 
 # Create your models here.
 class Actor(models.Model):
@@ -13,3 +14,9 @@ class Actor(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class ProfileSize(Enum):
+	w45 = 1
+	w185 = 2
+	h632 = 3
+	original = 4
