@@ -1,0 +1,40 @@
+THIS IS JUST FOR REFERENCE
+DELETE THIS FILE AFTER CREATING THE APPROPRIATE ENUMS
+
+Images base url: "http://image.tmdb.org/t/p/"
+Secure (HTTPS): "https://image.tmdb.org/t/p/"
+
+Backdrop Sizes:
+"w300"
+"w780"
+"w1280"
+
+Logo Sizes:
+"w45"
+"w92"
+"w154"
+"w185"
+"w300"
+"w500"
+"original"
+
+Poster Sizes:
+"w92"
+"w154"
+"w185"
+"w342"
+"w500"
+"w780"
+"original"
+
+Profile Sizes:
+"w45"
+"w185"
+"h632"
+"original"
+
+Still Sizes:
+"w92"
+"w185"
+"h632"
+"original"
