@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/SearchComponent.css';
 import axios from 'axios';
 import Suggestions from './Suggestions';
+import Select from 'react-select';
 
 const TMDB_URL = 'https://api.themoviedb.org/3/search/person';
 const { REACT_APP_TMDB_KEY }  = process.env;
@@ -42,6 +43,12 @@ class SearchComponent extends Component {
                 placeholder="Enter an actor..."
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
+                />
+                <Select
+                value={this.state.query}
+                onChange={this.handleInputChange}
+                ref={input => this.search = input}
+                options={this.state.results}
                 />
                 <Suggestions results={this.state.results}/>
                 <div className="search-button-container">
